@@ -2,3 +2,7 @@
   background-color: azure;
   padding: 10rem;
 }
+
+body {
+  font-family: "Roboto", sans-serif;
+}
