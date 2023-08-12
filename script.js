@@ -12,12 +12,21 @@ function updateTotal() {
   totalElement.textContent = `Total: $${total.toFixed(2)}`;
 }
 
+//updating the dom
 form.addEventListener("submit", function (e) {
   e.preventDefault();
   const transactionValue = document.getElementById("transaction").value;
   //creating anew element to hold the transaction data
   const transactionItem = document.createElement("div");
-  transactionItem.textContent = `Transaction Amount: $${transactionValue}`;
+
+  //checking if above 0
+  if (transactionValue < 0) {
+    transactionItem.textContent = `Transaction Amount: $${transactionValue}`;
+    transactionItem.classList.add("red-text");
+  } else {
+    transactionItem.textContent = `Transaction Amount: $${transactionValue}`;
+  }
+
   totalArr.push(transactionValue);
   // append the new transaction item to the output container
   outputElement.appendChild(transactionItem);
