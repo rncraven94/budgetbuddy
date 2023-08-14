@@ -17,15 +17,16 @@ form.addEventListener("submit", function (e) {
   e.preventDefault();
   const transactionValue = document.getElementById("transaction").value;
   const transactionType = document.getElementById("transactionType").value;
+  const category = document.getElementById("category").value;
   //creating anew element to hold the transaction data
   const transactionItem = document.createElement("div");
 
   //checking if above 0
   if (transactionValue < 0) {
-    transactionItem.textContent = `Transaction Type: ${transactionType}, Transaction Amount: $${transactionValue}`;
+    transactionItem.textContent = `Category: ${category}, Transaction Type: ${transactionType}, Transaction Amount: $${transactionValue}`;
     transactionItem.classList.add("red-text");
   } else {
-    transactionItem.textContent = `Transaction Type: ${transactionType}, Transaction Amount: $${transactionValue}`;
+    transactionItem.textContent = `Category: ${category}, Transaction Type: ${transactionType}, Transaction Amount: $${transactionValue}`;
   }
 
   //delete a row
@@ -45,6 +46,7 @@ form.addEventListener("submit", function (e) {
   //clear the input field after submission
   document.getElementById("transaction").value = "";
   document.getElementById("transactionType").value = "";
+  document.getElementById("category").value = "";
 
   updateTotal();
   if (total < 0) {
