@@ -47,4 +47,7 @@ form.addEventListener("submit", function (e) {
   document.getElementById("transactionType").value = "";
 
   updateTotal();
+  if (total < 0) {
+    totalElement.classList.add("red-text");
+  }
 });
