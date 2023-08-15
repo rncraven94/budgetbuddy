@@ -3,13 +3,36 @@ use: "strict";
 const form = document.getElementById("myForm");
 const outputElement = document.getElementById("output");
 const totalElement = document.getElementById("total");
-let totalArr = [];
+const depositElement = document.getElementById("deposit");
 let total = 0;
+let deposit = 0;
+let travel = 0;
+let grocery = 0;
+let resturaunt = 0;
+let entertainment = 0;
+let housing = 0;
+let bills = 0;
+let savings = 0;
+let investments = 0;
+let other = 0;
+let totalArr = [];
+let depositArr = [];
+let travelArr = [];
+let groceryArr = [];
+let resturauntArr = [];
+let entertainmentArr = [];
+let housingArr = [];
+let billsArr = [];
+let savingsArr = [];
+let investmentsArr = [];
+let otherArr = [];
 
 //updating the total
 function updateTotal() {
   total = totalArr.reduce((sum, value) => sum + parseFloat(value), 0);
   totalElement.textContent = `Total: $${total.toFixed(2)}`;
+  deposit = depositArr.reduce((sum, value) => sum + parseFloat(value), 0);
+  depositElement.textContent = `Deposit: $${deposit.toFixed(2)}`;
 }
 
 //updating the dom
