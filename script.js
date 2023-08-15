@@ -58,12 +58,21 @@ form.addEventListener("submit", function (e) {
   deleteButton.addEventListener("click", function () {
     const index = Array.from(outputElement.children).indexOf(transactionItem);
     totalArr.splice(index, 1);
-    outputElement.removeChild(transactionItem);
+    if (category === "Deposit") {
+      depositArr.splice(index, 1);
+      updateTotal();
+    }
     updateTotal();
+    outputElement.removeChild(transactionItem);
   });
 
   transactionItem.appendChild(deleteButton);
   totalArr.push(transactionValue);
+  //push the transaction value to the appropriate category
+  if (category === "Deposit") {
+    depositArr.push(transactionValue);
+  }
+
   // append the new transaction item to the output container
   outputElement.appendChild(transactionItem);
   //clear the input field after submission
