@@ -5,7 +5,7 @@ const outputElement = document.getElementById("output");
 const totalElement = document.getElementById("total");
 const depositElement = document.getElementById("deposit");
 const travelElement = document.getElementById("travel");
-const groceryElement = document.getElementById("grocery");
+const groceryElement = document.getElementById("groceries");
 const resturauntElement = document.getElementById("restaurants");
 const entertainmentElement = document.getElementById("entertainment");
 const housingElement = document.getElementById("housing");
@@ -108,33 +108,43 @@ form.addEventListener("submit", function (e) {
     totalArr.splice(index, 1);
     if (category === "Deposit") {
       depositArr.splice(index, 1);
+      updateTotal();
     }
     if (category === "Travel") {
       travelArr.splice(index, 1);
+      updateTotal();
     }
     if (category === "Groceries") {
       groceryArr.splice(index, 1);
+      updateTotal();
     }
     if (category === "Restaurants") {
       resturauntArr.splice(index, 1);
+      updateTotal();
     }
     if (category === "Entertainment") {
       entertainmentArr.splice(index, 1);
+      updateTotal();
     }
     if (category === "Housing") {
       housingArr.splice(index, 1);
+      updateTotal();
     }
     if (category === "Bills") {
       billsArr.splice(index, 1);
+      updateTotal();
     }
     if (category === "Savings") {
       savingsArr.splice(index, 1);
+      updateTotal();
     }
     if (category === "Investments") {
       investmentsArr.splice(index, 1);
+      updateTotal();
     }
     if (category === "Other") {
       otherArr.splice(index, 1);
+      updateTotal();
     }
     updateTotal();
     outputElement.removeChild(transactionItem);
