@@ -1,9 +1,20 @@
 use: "strict";
-
+// element forms for each category
 const form = document.getElementById("myForm");
 const outputElement = document.getElementById("output");
 const totalElement = document.getElementById("total");
 const depositElement = document.getElementById("deposit");
+const travelElement = document.getElementById("travel");
+const groceryElement = document.getElementById("grocery");
+const resturauntElement = document.getElementById("restaurants");
+const entertainmentElement = document.getElementById("entertainment");
+const housingElement = document.getElementById("housing");
+const billsElement = document.getElementById("bills");
+const savingsElement = document.getElementById("savings");
+const investmentsElement = document.getElementById("investments");
+const otherElement = document.getElementById("other");
+
+//totals for each category
 let total = 0;
 let deposit = 0;
 let travel = 0;
@@ -33,6 +44,43 @@ function updateTotal() {
   totalElement.textContent = `Total: $${total.toFixed(2)}`;
   deposit = depositArr.reduce((sum, value) => sum + parseFloat(value), 0);
   depositElement.textContent = `Deposit: $${deposit.toFixed(2)}`;
+  travel = travelArr.reduce((sum, value) => sum + parseFloat(value), 0);
+  travelElement.textContent = `Travel: $${Math.abs(travel.toFixed(2))}`;
+  grocery = groceryArr.reduce((sum, value) => sum + parseFloat(value), 0);
+  groceryElement.textContent = `Groceries: $${Math.abs(grocery.toFixed(2))}`;
+  resturaunt = resturauntArr.reduce((sum, value) => sum + parseFloat(value), 0);
+  resturauntElement.textContent = `Resturaunt: $${Math.abs(
+    resturaunt.toFixed(2)
+  )}`;
+  entertainment = entertainmentArr.reduce(
+    (sum, value) => sum + parseFloat(value),
+    0
+  );
+  entertainmentElement.textContent = `Entertainment: $${Math.abs(
+    entertainment.toFixed(2)
+  )}`;
+  housing = housingArr.reduce((sum, value) => sum + parseFloat(value), 0);
+  housingElement.textContent = `Housing: $${Math.abs(housing.toFixed(2))}`;
+  bills = billsArr.reduce((sum, value) => sum + parseFloat(value), 0);
+  billsElement.textContent = `Bills: $${Math.abs(bills.toFixed(2))}`;
+  savings = savingsArr.reduce((sum, value) => sum + parseFloat(value), 0);
+  savingsElement.textContent = `Savings: $${Math.abs(savings.toFixed(2))}`;
+  investments = investmentsArr.reduce(
+    (sum, value) => sum + parseFloat(value),
+    0
+  );
+  investmentsElement.textContent = `Investments: $${Math.abs(
+    investments.toFixed(2)
+  )}`;
+  other = otherArr.reduce((sum, value) => sum + parseFloat(value), 0);
+  otherElement.textContent = `Other: $${Math.abs(other.toFixed(2))}`;
+  //red or black total
+
+  if (total < 0) {
+    totalElement.classList.add("red-text");
+  } else {
+    totalElement.classList.remove("red-text");
+  }
 }
 
 //updating the dom
@@ -60,7 +108,33 @@ form.addEventListener("submit", function (e) {
     totalArr.splice(index, 1);
     if (category === "Deposit") {
       depositArr.splice(index, 1);
-      updateTotal();
+    }
+    if (category === "Travel") {
+      travelArr.splice(index, 1);
+    }
+    if (category === "Groceries") {
+      groceryArr.splice(index, 1);
+    }
+    if (category === "Restaurants") {
+      resturauntArr.splice(index, 1);
+    }
+    if (category === "Entertainment") {
+      entertainmentArr.splice(index, 1);
+    }
+    if (category === "Housing") {
+      housingArr.splice(index, 1);
+    }
+    if (category === "Bills") {
+      billsArr.splice(index, 1);
+    }
+    if (category === "Savings") {
+      savingsArr.splice(index, 1);
+    }
+    if (category === "Investments") {
+      investmentsArr.splice(index, 1);
+    }
+    if (category === "Other") {
+      otherArr.splice(index, 1);
     }
     updateTotal();
     outputElement.removeChild(transactionItem);
@@ -72,7 +146,33 @@ form.addEventListener("submit", function (e) {
   if (category === "Deposit") {
     depositArr.push(transactionValue);
   }
-
+  if (category === "Travel") {
+    travelArr.push(transactionValue);
+  }
+  if (category === "Groceries") {
+    groceryArr.push(transactionValue);
+  }
+  if (category === "Restaurants") {
+    resturauntArr.push(transactionValue);
+  }
+  if (category === "Entertainment") {
+    entertainmentArr.push(transactionValue);
+  }
+  if (category === "Housing") {
+    housingArr.push(transactionValue);
+  }
+  if (category === "Bills") {
+    billsArr.push(transactionValue);
+  }
+  if (category === "Savings") {
+    savingsArr.push(transactionValue);
+  }
+  if (category === "Investments") {
+    investmentsArr.push(transactionValue);
+  }
+  if (category === "Other") {
+    otherArr.push(transactionValue);
+  }
   // append the new transaction item to the output container
   outputElement.appendChild(transactionItem);
   //clear the input field after submission
@@ -81,7 +181,4 @@ form.addEventListener("submit", function (e) {
   document.getElementById("category").value = "";
 
   updateTotal();
-  if (total < 0) {
-    totalElement.classList.add("red-text");
-  }
 });
