@@ -16,6 +16,8 @@ const otherElement = document.getElementById("other");
 
 //totals for each category
 let total = 0;
+let totalExpensesArr = [];
+let totalExpenses = 0;
 let deposit = 0;
 let travel = 0;
 let grocery = 0;
@@ -74,6 +76,23 @@ function updateTotal() {
   )}`;
   other = otherArr.reduce((sum, value) => sum + parseFloat(value), 0);
   otherElement.textContent = `Other: $${Math.abs(other.toFixed(2))}`;
+  //updates expenses
+  totalExpensesArr = [
+    travel,
+    grocery,
+    resturaunt,
+    entertainment,
+    housing,
+    bills,
+    savings,
+    investments,
+    other,
+  ];
+  totalExpenses = totalExpensesArr.reduce(
+    (sum, value) => sum + Math.abs(value),
+    0
+  );
+  updateExpenses();
   //red or black total
 
   if (total < 0) {
@@ -81,6 +100,12 @@ function updateTotal() {
   } else {
     totalElement.classList.remove("red-text");
   }
+}
+
+//updating total expenses
+function updateExpenses() {
+  const expensesElement = document.getElementById("total-expenses");
+  expensesElement.textContent = `Total Expenses: $${totalExpenses.toFixed(2)}`;
 }
 
 //updating the dom
