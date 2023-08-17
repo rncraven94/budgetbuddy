@@ -13,6 +13,7 @@ const billsElement = document.getElementById("bills");
 const savingsElement = document.getElementById("savings");
 const investmentsElement = document.getElementById("investments");
 const otherElement = document.getElementById("other");
+const travelElementPercentage = document.getElementById("travel-perc");
 
 //totals for each category
 let total = 0;
@@ -39,6 +40,7 @@ let billsArr = [];
 let savingsArr = [];
 let investmentsArr = [];
 let otherArr = [];
+let travelPerc = 0;
 
 //updating the total
 function updateTotal() {
@@ -92,7 +94,6 @@ function updateTotal() {
     (sum, value) => sum + Math.abs(value),
     0
   );
-  updateExpenses();
   //red or black total
 
   if (total < 0) {
@@ -100,6 +101,16 @@ function updateTotal() {
   } else {
     totalElement.classList.remove("red-text");
   }
+
+  travelPerc = Math.trunc((Math.abs(travel) / totalExpenses) * 100);
+  // console.log(travelPerc);
+  if (!isNaN(travelPerc)) {
+    travelElementPercentage.textContent = `${travelPerc}%`;
+  } else {
+    travelElementPercentage.textContent = ``;
+  }
+
+  updateExpenses();
 }
 
 //updating total expenses
