@@ -107,7 +107,7 @@ function updateTotal() {
   if (!isNaN(travelPerc)) {
     travelElementPercentage.textContent = `${travelPerc}%`;
   } else {
-    travelElementPercentage.textContent = ``;
+    travelElementPercentage.textContent = `0%`;
   }
 
   updateExpenses();
