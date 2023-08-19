@@ -14,6 +14,16 @@ const savingsElement = document.getElementById("savings");
 const investmentsElement = document.getElementById("investments");
 const otherElement = document.getElementById("other");
 const travelElementPercentage = document.getElementById("travel-perc");
+const groceryElementPercentage = document.getElementById("groceries-perc");
+const resturauntElementPercentage = document.getElementById("resturaunt-perc");
+const entertainmentElementPercentage =
+  document.getElementById("entertainment-perc");
+const housingElementPercentage = document.getElementById("housing-perc");
+const billsElementPercentage = document.getElementById("bills-perc");
+const savingsElementPercentage = document.getElementById("savings-perc");
+const investmentsElementPercentage =
+  document.getElementById("investments-perc");
+const otherElementPercentage = document.getElementById("others-perc");
 
 //totals for each category
 let total = 0;
@@ -41,6 +51,14 @@ let savingsArr = [];
 let investmentsArr = [];
 let otherArr = [];
 let travelPerc = 0;
+let groceryPerc = 0;
+let resturauntPerc = 0;
+let entertainmentPerc = 0;
+let housingPerc = 0;
+let billsPerc = 0;
+let savingsPerc = 0;
+let investmentsPerc = 0;
+let otherPerc = 0;
 
 //updating the total
 function updateTotal() {
@@ -108,6 +126,13 @@ function updateTotal() {
     travelElementPercentage.textContent = `${travelPerc}%`;
   } else {
     travelElementPercentage.textContent = `0%`;
+  }
+  groceryPerc = Math.trunc((Math.abs(grocery) / totalExpenses) * 100);
+  // console.log(travelPerc);
+  if (!isNaN(groceryPerc)) {
+    groceryElementPercentage.textContent = `${groceryPerc}%`;
+  } else {
+    groceryElementPercentage.textContent = `0%`;
   }
 
   updateExpenses();
