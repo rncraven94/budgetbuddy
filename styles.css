@@ -10,3 +10,8 @@ body {
 .red-text {
   color: red;
 }
+
+.percent-window {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+}
