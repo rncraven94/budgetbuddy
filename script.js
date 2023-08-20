@@ -134,7 +134,22 @@ function updateTotal() {
   } else {
     groceryElementPercentage.textContent = `0%`;
   }
-
+  resturauntPerc = Math.trunc((Math.abs(resturaunt) / totalExpenses) * 100);
+  // console.log(travelPerc);
+  if (!isNaN(resturauntPerc)) {
+    resturauntElementPercentage.textContent = `${resturauntPerc}%`;
+  } else {
+    resturauntElementPercentage.textContent = `0%`;
+  }
+  entertainmentPerc = Math.trunc(
+    (Math.abs(entertainment) / totalExpenses) * 100
+  );
+  // console.log(travelPerc);
+  if (!isNaN(entertainmentPerc)) {
+    entertainmentElementPercentage.textContent = `${entertainmentPerc}%`;
+  } else {
+    entertainmentElementPercentage.textContent = `0%`;
+  }
   updateExpenses();
 }
 
@@ -249,7 +264,7 @@ form.addEventListener("submit", function (e) {
   //clear the input field after submission
   document.getElementById("transaction").value = "";
   document.getElementById("transactionType").value = "";
-  document.getElementById("category").value = "";
+  // document.getElementById("category").value = "";
 
   updateTotal();
 });
