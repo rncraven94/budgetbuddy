@@ -15,7 +15,7 @@ const investmentsElement = document.getElementById("investments");
 const otherElement = document.getElementById("other");
 const travelElementPercentage = document.getElementById("travel-perc");
 const groceryElementPercentage = document.getElementById("groceries-perc");
-const resturauntElementPercentage = document.getElementById("resturaunt-perc");
+const resturauntElementPercentage = document.getElementById("restaurants-perc");
 const entertainmentElementPercentage =
   document.getElementById("entertainment-perc");
 const housingElementPercentage = document.getElementById("housing-perc");
@@ -149,6 +149,41 @@ function updateTotal() {
     entertainmentElementPercentage.textContent = `${entertainmentPerc}%`;
   } else {
     entertainmentElementPercentage.textContent = `0%`;
+  }
+  housingPerc = Math.trunc((Math.abs(housing) / totalExpenses) * 100);
+  // console.log(travelPerc);
+  if (!isNaN(housingPerc)) {
+    housingElementPercentage.textContent = `${housingPerc}%`;
+  } else {
+    housingElementPercentage.textContent = `0%`;
+  }
+  billsPerc = Math.trunc((Math.abs(bills) / totalExpenses) * 100);
+  // console.log(travelPerc);
+  if (!isNaN(billsPerc)) {
+    billsElementPercentage.textContent = `${billsPerc}%`;
+  } else {
+    billsElementPercentage.textContent = `0%`;
+  }
+  savingsPerc = Math.trunc((Math.abs(savings) / totalExpenses) * 100);
+  // console.log(travelPerc);
+  if (!isNaN(savingsPerc)) {
+    savingsElementPercentage.textContent = `${savingsPerc}%`;
+  } else {
+    savingsElementPercentage.textContent = `0%`;
+  }
+  investmentsPerc = Math.trunc((Math.abs(investments) / totalExpenses) * 100);
+  // console.log(travelPerc);
+  if (!isNaN(investmentsPerc)) {
+    investmentsElementPercentage.textContent = `${investmentsPerc}%`;
+  } else {
+    investmentsElementPercentage.textContent = `0%`;
+  }
+  otherPerc = Math.trunc((Math.abs(other) / totalExpenses) * 100);
+  // console.log(travelPerc);
+  if (!isNaN(otherPerc)) {
+    otherElementPercentage.textContent = `${otherPerc}%`;
+  } else {
+    otherElementPercentage.textContent = `0%`;
   }
   updateExpenses();
 }
