@@ -202,6 +202,7 @@ form.addEventListener("submit", function (e) {
   const category = document.getElementById("category").value;
   //creating anew element to hold the transaction data
   const transactionItem = document.createElement("div");
+  transactionItem.dataId = Date.now();
 
   //checking if above 0
   if (transactionValue < 0) {
@@ -214,8 +215,10 @@ form.addEventListener("submit", function (e) {
   //delete a row
   const deleteButton = document.createElement("button");
   deleteButton.textContent = "X";
+  deleteButton.classList.add("button-class");
   deleteButton.addEventListener("click", function () {
-    const index = Array.from(outputElement.children).indexOf(transactionItem);
+    const transactionId = transactionItem.dataId;
+    const index = totalArr.findIndex((item) => item.dataId === transactionId);
     totalArr.splice(index, 1);
     if (category === "Deposit") {
       depositArr.splice(index, 1);
