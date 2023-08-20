@@ -224,6 +224,9 @@ form.addEventListener("submit", function (e) {
     if (category === "Travel") {
       travelArr.splice(index, 1);
       updateTotal();
+      updateExpenses();
+      console.log(travelArr);
+      console.log(totalArr);
     }
     if (category === "Groceries") {
       groceryArr.splice(index, 1);
@@ -257,7 +260,9 @@ form.addEventListener("submit", function (e) {
       otherArr.splice(index, 1);
       updateTotal();
     }
+    totalExpensesArr.splice(index, 1);
     updateTotal();
+    updateExpenses();
     outputElement.removeChild(transactionItem);
   });
 
